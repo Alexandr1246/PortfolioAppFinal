@@ -4,6 +4,7 @@ package com.example.appdemo
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
@@ -20,7 +21,7 @@ class MoviesActivity : AppCompatActivity() {
         val recyclerview = findViewById<RecyclerView>(R.id.recyclerview) //создаем список
 
         // this creates a vertical layout Manager
-        recyclerview.layoutManager = LinearLayoutManager(this) // указывает что список будет вертикальным
+        recyclerview.layoutManager = GridLayoutManager(this, 2) // указывает что список будет вертикальным
 
         // ArrayList of class ItemsViewModel
         val data = ArrayList<ItemsViewModel>()
@@ -31,22 +32,26 @@ class MoviesActivity : AppCompatActivity() {
             data.add(ItemsViewModel(R.drawable.common_full_open_on_phone, "Item " + i))
         }
 
-        // This will pass the ArrayList to our Adapter
-        val adapter = CustomAdapter(data)
 
-        // Setting the Adapter with the recyclerview
-        recyclerview.adapter = adapter // передаем данные в список
-        val apiInterface = ApiInterface.create().getMovies()
+
+        val apiInterface = ApiInterface.create().getMovies("972ed1f09cd44308501949c0f3763a1f")
 
         //apiInterface.enqueue( Callback<List<Movie>>())
-        apiInterface.enqueue( object : Callback<TestingDataClass> {
-            override fun onResponse(call: Call<TestingDataClass>?, response: Response<TestingDataClass>?) {
-            Log.d("testLog", "OnResponse Success ${response?.body()?.data?.first_name}")
+        apiInterface.enqueue( object : Callback<Movies> {
+            override fun onResponse(call: Call<Movies>?, response: Response<Movies>?) {
+            Log.d("testLog", "OnResponse Success ${response?.body()?.results}")
+
+                // This will pass the ArrayList to our Adapter
+                val adapter = CustomAdapter(response?.body()?.results)
+
+                // Setting the Adapter with the recyclerview
+                recyclerview.adapter = adapter // передаем данные в список
+
 //                if(response?.body() != null)
 //                    recyclerAdapter.setMovieListItems(response.body()!!)
             }
 
-            override fun onFailure(call: Call<TestingDataClass>?, t: Throwable?) {
+            override fun onFailure(call: Call<Movies>?, t: Throwable?) {
                 Log.d("testLog", "onFailure : ${t?.message}")
             }
         })
