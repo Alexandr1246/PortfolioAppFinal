@@ -1,14 +1,19 @@
-package com.example.First_App
+package com.example.First_App.view.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.First_App.R
 import com.example.First_App.data.Result
+import com.example.First_App.view.MoviesActivity
 import com.squareup.picasso.Picasso
 
-class CustomAdapter(private val mList: List<Result>?, val mItemClickListener: ItemClickListener) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+class CustomAdapter(private val mList: List<Result>?,
+                    val mItemClickListener: MoviesActivity
+) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+
     interface ItemClickListener {
         fun onItemClick(position: Int)
     }
