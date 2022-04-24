@@ -1,5 +1,7 @@
-package com.example.appdemo
+package com.example.First_App.model.apis
 
+import com.example.First_App.data.MovieDetails
+import com.example.First_App.data.Movies
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

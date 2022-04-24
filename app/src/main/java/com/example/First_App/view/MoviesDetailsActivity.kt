@@ -1,9 +1,13 @@
-package com.example.appdemo
+package com.example.First_App.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
+import com.example.First_App.Constants
+import com.example.First_App.R
+import com.example.First_App.data.MovieDetails
+import com.example.First_App.model.apis.ApiInterface
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback

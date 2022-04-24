@@ -1,4 +1,4 @@
-package com.example.appdemo
+package com.example.First_App.data
 
 data class Data(
     val avatar: String,

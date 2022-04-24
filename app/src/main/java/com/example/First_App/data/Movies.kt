@@ -1,4 +1,6 @@
-package com.example.appdemo
+package com.example.First_App.data
+
+import com.example.First_App.data.Result
 
 data class Movies(
     val page: Int,

@@ -1,10 +1,11 @@
-package com.example.appdemo
+package com.example.First_App
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.First_App.data.Result
 import com.squareup.picasso.Picasso
 
 class CustomAdapter(private val mList: List<Result>?, val mItemClickListener: ItemClickListener) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {

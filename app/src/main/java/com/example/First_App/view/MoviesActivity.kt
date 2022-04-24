@@ -1,4 +1,4 @@
-package com.example.appdemo
+package com.example.First_App.view
 
 
 import android.content.Intent
@@ -7,7 +7,12 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.appdemo.Constants.API_KEY
+import com.example.First_App.Constants.API_KEY
+import com.example.First_App.CustomAdapter
+import com.example.First_App.ItemsViewModel
+import com.example.First_App.R
+import com.example.First_App.data.Movies
+import com.example.First_App.model.apis.ApiInterface
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
